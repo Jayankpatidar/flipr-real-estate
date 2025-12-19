@@ -38,7 +38,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 // MongoDB Connection
 // ======================
 mongoose
-  .connect('mongodb://localhost:27017/flipr_real_estate')
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/flipr_real_estate')
   .then(() => console.log('✅ MongoDB connected'))
   .catch((err) => console.error('❌ MongoDB error:', err));
 
